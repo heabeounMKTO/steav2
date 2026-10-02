@@ -1,0 +1,6 @@
+// expect: a sampoan method gets a copy of nis
+bongSlanhOun "struct_method_mutation";
+sampoan V {
+    akthe x: LekThom;
+    rupamun reset() { x = 0; }
+}

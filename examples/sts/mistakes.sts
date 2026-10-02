@@ -1,0 +1,32 @@
+bongSlanhOun "mistakes";
+// every line below is a type error, the checker reports them all before
+// anything runs. run: ./build/steav examples/sts/mistakes.sts
+yok vector;
+
+akthe i: LekKut = 1;
+akthe x: LekThom = 2.5;
+jongyeytha i + x;                  // numbers never mix, use LekThom(i)
+
+akthe whole: LekKut = 1.5;         // not a whole number
+
+akthe v = Vec3(1, 2, 3);
+jongyeytha 2 * v + 1;              // fine: s * v and v + s both exist
+jongyeytha v * v * "three";        // no Vec3 * Ahsor
+
+akthe maybe: Vec3? = sone;
+jongyeytha maybe.x;                // might be sone, check it first
+
+jongyeytha i == sone;              // i can never be sone
+
+sampoan Frozen {
+    akthe t: LekThom;
+    rupamun thaw() { t = 1; }      // sampoan methods get a copy of nis
+}
+
+rupamun half(x: LekThom) -> LekThom {
+    ber (x > 0) morvenh x / 2;     // can fall off the end
+}
+
+rupamun dot(a: Vec3, b: Vec3) -> LekThom { morvenh 0; } // clashes with vector's dot
+
+ber (i) { jongyeytha "truthy?"; } // conditions have to be Boolean

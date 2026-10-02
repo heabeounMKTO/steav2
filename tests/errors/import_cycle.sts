@@ -1,0 +1,3 @@
+// expect: import cycle through
+bongSlanhOun "import_cycle";
+yok "import_cycle.sts";

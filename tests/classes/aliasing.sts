@@ -1,0 +1,31 @@
+bongSlanhOun "aliasing";
+// tnak and arrays are shared by reference
+tnak Counter {
+    akthe n: LekKut;
+    rupamun init() { n = 0; }
+    rupamun inc() { n = n + 1; }
+}
+
+akthe a = Counter();
+akthe b = a;
+b.inc();
+b.inc();
+jongyeytha a.n;
+
+rupamun bump(c: Counter) { c.inc(); }
+bump(a);
+jongyeytha b.n;
+
+akthe xs = [1, 2, 3];
+akthe ys = xs;
+ys[0] = 10;
+ys.push(4);
+jongyeytha xs;
+jongyeytha xs.len();
+
+// a class with no init takes no args, fields start as sone
+tnak Bag { akthe label: Ahsor; }
+akthe bag = Bag();
+jongyeytha bag.label;
+bag.label = "full";
+jongyeytha bag.label;

@@ -1,0 +1,31 @@
+bongSlanhOun "arrays";
+sampoan Vec3 { akthe x: LekThom; akthe y: LekThom; akthe z: LekThom; }
+
+// the README's verts
+akthe verts: [Vec3] = [Vec3(0, 0, 0), Vec3(1, 0, 0), Vec3(0, 1, 0)];
+akthe first = verts[0];
+jongyeytha first;
+jongyeytha verts;
+
+// writes through an element, just the one slot
+verts[1].x = 2;
+jongyeytha verts[1];
+first.x = 99;
+jongyeytha verts[0];
+
+akthe grid: [[LekKut]] = [[1, 2], [3]];
+grid[1].push(4);
+jongyeytha grid;
+jongyeytha grid[1][1];
+
+akthe empty: [Ahsor] = [];
+empty.push("a");
+empty.push("b");
+jongyeytha empty;
+
+// arrays grow in a loop
+akthe squares: [LekKut] = [];
+somhab (akthe i: LekKut = 0; i < 5; i = i + 1) {
+    squares.push(i * i);
+}
+jongyeytha squares;

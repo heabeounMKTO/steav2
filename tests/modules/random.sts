@@ -1,0 +1,27 @@
+bongSlanhOun "random";
+// same numbers as keo's PCG32 with its default seed
+yok random jea rng;
+jongyeytha rng.uniform();
+jongyeytha rng.uniform();
+
+rng.seed_stream(42, 54);
+jongyeytha rng.interval(-1, 1);
+
+rng.seed(98737613);
+jongyeytha rng.uniform();
+
+// keo's random helpers from vec.h live in vector
+yok vector;
+akthe ok_so_far = ok;
+somhab (akthe i: LekKut = 0; i < 100; i = i + 1) {
+    akthe u = random_unit_vector();
+    ber (m_abs(u.length() - 1) > 0.000001) ok_so_far = ort;
+    ber (random_in_unit_disk().length_sq() >= 1) ok_so_far = ort;
+    ber (dot(random_on_hemisphere(up()), up()) < 0) ok_so_far = ort;
+}
+jongyeytha ok_so_far;
+
+rupamun m_abs(x: LekThom) -> LekThom {
+    ber (x < 0) morvenh -x;
+    morvenh x;
+}

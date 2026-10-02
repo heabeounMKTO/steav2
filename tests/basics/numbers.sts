@@ -1,0 +1,30 @@
+bongSlanhOun "numbers";
+// untyped literals default to Lek (= LekThom)
+akthe a = 5;
+jongyeytha a / 2;
+jongyeytha 0.1 + 0.2;
+
+// ...unless the context pins them
+akthe i: LekKut = 7;
+jongyeytha i / 2;
+jongyeytha i * 3 - 1;
+jongyeytha -i;
+akthe big: LekThomKlang = 3000000000;
+jongyeytha big * 2;
+
+// a literal next to a typed value takes its type
+jongyeytha i + 1;
+jongyeytha 1 + i;
+akthe k: LekKut = 2 * 3 + 4;
+jongyeytha k;
+
+// comparisons
+jongyeytha i < 10;
+jongyeytha i >= 7;
+jongyeytha i == 7;
+jongyeytha i != 7;
+jongyeytha 2.5 <= 2.5;
+
+// LekKut wraps instead of overflowing
+akthe max: LekKut = 2147483647;
+jongyeytha max + 1;

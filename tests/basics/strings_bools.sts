@@ -1,0 +1,11 @@
+bongSlanhOun "strings_bools";
+akthe s = "steav";
+jongyeytha s + "2";
+jongyeytha s == "steav";
+jongyeytha s != "steav";
+jongyeytha ok ng ort;
+jongyeytha ok reu ort;
+jongyeytha !ok;
+akthe multi = "two
+lines";
+jongyeytha multi;

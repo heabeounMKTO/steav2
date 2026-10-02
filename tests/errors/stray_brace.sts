@@ -1,0 +1,7 @@
+// expect: expected a variable name
+bongSlanhOun "maybe!?";
+akthe friends = ["boophy", "chenda", "tharoth"];
+
+somhab (akthe: LekKut i = 0; i < to_lekkut(friends.len()); i+=1) {
+  jongyeytha i;
+}

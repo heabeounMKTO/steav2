@@ -1,0 +1,7 @@
+// expect: no operator '*' for LekThom and V
+bongSlanhOun "no_commutativity";
+sampoan V { akthe x: LekThom; }
+rupamun *(a: V, s: LekThom) -> V { morvenh V(a.x * s); }
+akthe v = V(1);
+jongyeytha v * 2;
+jongyeytha 2 * v;

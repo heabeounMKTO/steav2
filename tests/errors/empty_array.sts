@@ -1,0 +1,3 @@
+// expect: can't tell what [] holds
+bongSlanhOun "empty_array";
+akthe xs = [];

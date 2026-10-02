@@ -1,0 +1,8 @@
+// expect: it might be sone
+bongSlanhOun "read_after_kill";
+sampoan Hit { akthe t: LekThom; }
+akthe h: Hit? = Hit(1);
+ber (h != sone) {
+    h = sone;
+    jongyeytha h.t;
+}

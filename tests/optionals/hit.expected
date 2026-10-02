@@ -1,0 +1,15 @@
+2
+Vec3(0, 0, 2)
+HitRecord(Vec3(0, 0, 2), 2)
+sone
+ok
+missed
+sone
+HitRecord(Vec3(1, 2, 3), 5)
+ort
+steav2
+[HitRecord(Vec3(0, 0, 1), 1), sone]
+ok
+3
+7
+0

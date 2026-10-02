@@ -1,0 +1,10 @@
+// expect: can't assign to 'h' in a loop inside the check against sone
+bongSlanhOun "assign_narrowed";
+sampoan Hit { akthe t: LekThom; }
+akthe h: Hit? = Hit(1);
+ber (h != sone) {
+    somhab (akthe i: LekKut = 0; i < 2; i = i + 1) {
+        jongyeytha h.t;
+        h = sone;
+    }
+}

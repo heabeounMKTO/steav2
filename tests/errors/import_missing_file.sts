@@ -1,0 +1,3 @@
+// expect: couldn't open
+bongSlanhOun "import_missing_file";
+yok "does_not_exist.sts";

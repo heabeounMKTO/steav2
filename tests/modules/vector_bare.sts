@@ -1,0 +1,46 @@
+bongSlanhOun "vector_bare";
+// keo's math/vec.h API, as steav2
+yok vector;
+
+akthe a = Vec3(1, 2, 3);
+akthe b = Vec3(4, -5, 6);
+jongyeytha a + b;
+jongyeytha a - b;
+jongyeytha a * b;
+jongyeytha a / 2;
+jongyeytha a + 1;
+jongyeytha a - 1;
+jongyeytha a * 2;
+jongyeytha 2 * a;
+jongyeytha -a;
+jongyeytha a == Vec3(1, 2, 3);
+jongyeytha a != b;
+jongyeytha dot(a, b);
+jongyeytha cross(a, b);
+jongyeytha Vec3(3, 4, 0).length();
+jongyeytha a.length_sq();
+jongyeytha Vec3(0, 3, 4).normalized();
+jongyeytha lerp(zero(), Vec3(2, 4, 6), 0.5);
+jongyeytha a.min(b);
+jongyeytha a.max(b);
+jongyeytha b.abs();
+jongyeytha Vec3(0.000000001, 0, 0).near_zero();
+jongyeytha up().near_zero();
+jongyeytha one() + right() + forward();
+
+jongyeytha reflect(Vec3(1, -1, 0), up());
+jongyeytha refract(Vec3(0, -1, 0), up(), 1);
+jongyeytha schlick_approx(1, 1.5);
+akthe r = rotate(right(), up(), 3.141592653589793);
+jongyeytha r.x < -0.999999 ng r.z > -0.000001;
+
+jongyeytha Vec2(3, 4).length();
+jongyeytha cross2(Vec2(1, 0), Vec2(0, 1));
+jongyeytha dot2(one2(), Vec2(2, 3));
+jongyeytha dot4(one4(), Vec4(1, 2, 3, 4));
+jongyeytha extend(a, 1);
+jongyeytha extend(a, 1).xyz();
+jongyeytha lerp4(zero4(), one4(), 0.25);
+jongyeytha splat(2);
+jongyeytha splat2(0.5);
+jongyeytha splat4(1) == one4();

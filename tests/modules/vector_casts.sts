@@ -1,0 +1,18 @@
+bongSlanhOun "vector_casts";
+yok vector;
+
+akthe v3 = Vec3(1.7, -2.2, 3.9);
+jongyeytha to_lekkut(v3);
+jongyeytha to_lekthom(to_lekkut(v3));
+
+akthe v2 = Vec2(4.5, -4.5);
+jongyeytha to_lekkut2(v2);
+jongyeytha to_lekthom2(to_lekkut2(v2));
+
+akthe v4 = Vec4(1.1, 2.9, -3.1, 100.0);
+jongyeytha to_lekkut4(v4);
+jongyeytha to_lekthom4(to_lekkut4(v4));
+
+// out of LekKut range clamps (same as the scalar LekKut(x) cast), NaN -> 0
+akthe extreme = Vec3(99999999999.0, -99999999999.0, 0.0 / 0.0);
+jongyeytha to_lekkut(extreme);

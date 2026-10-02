@@ -1,0 +1,67 @@
+bongSlanhOun "compound_index";
+yok vector;
+
+// compound assignment on locals, globals, fields, array elements
+akthe n: LekKut = 10;
+n += 5;
+n -= 3;
+n *= 2;
+n /= 4;
+jongyeytha n;
+akthe s = "steav";
+s += "2";
+jongyeytha s;
+
+// through operator overloads: Vec3 += Vec3, Vec3 *= LekThom
+akthe v = Vec3(1, 2, 3);
+v += Vec3(1, 1, 1);
+v *= 2;
+v -= 1;
+v /= 2;
+jongyeytha v;
+v.y += 10;
+jongyeytha v;
+
+// keo's v[i]
+jongyeytha v[0];
+v[2] = 9;
+v[1] += 1;
+jongyeytha v;
+akthe total = 0;
+somhab (akthe i: LekKut = 0; i < 3; i += 1) {
+    total += v[i];
+}
+jongyeytha total;
+jongyeytha Vec4(1, 2, 3, 4)[3];     // a temporary
+jongyeytha cross(right(), up())[2];
+
+// deep places: tnak field, array element, nested sampoan
+tnak Body {
+    akthe pos: Vec3;
+    rupamun init() { pos = zero(); }
+    rupamun nudge() {
+        pos += Vec3(0.5, 0, 0);
+        pos[1] += 2;
+    }
+}
+akthe b = Body();
+b.nudge();
+b.nudge();
+b.pos[2] -= 1;
+jongyeytha b.pos;
+
+akthe pts: [Vec2] = [Vec2(0, 0), Vec2(1, 1)];
+pts[1] *= 3;
+pts[1][0] += 0.5;
+jongyeytha pts;
+
+sampoan Ray { akthe origin: Vec3; akthe dir: Vec3; }
+akthe r = Ray(zero(), up());
+r.dir[0] = 7;
+r.origin += one();
+jongyeytha r;
+
+// keo's normalize() in place, spelled with compound assignment
+akthe d = Vec3(0, 3, 4);
+d /= d.length();
+jongyeytha d;

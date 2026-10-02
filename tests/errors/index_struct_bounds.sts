@@ -1,0 +1,6 @@
+// expect: index 3 is out of bounds, the sampoan has 3 fields
+bongSlanhOun "index_struct_bounds";
+yok vector;
+akthe v = one();
+akthe i: LekKut = 3;
+jongyeytha v[i];

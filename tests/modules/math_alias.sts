@@ -1,0 +1,4 @@
+bongSlanhOun "math_alias";
+yok math jea m;
+jongyeytha m.sqrt(2) == m.SQRT2;
+jongyeytha m.floor(255.999 * 0.5);

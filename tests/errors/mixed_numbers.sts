@@ -1,0 +1,5 @@
+// expect: no operator '+' for LekKut and LekThom
+bongSlanhOun "mixed_numbers";
+akthe i: LekKut = 1;
+akthe x: LekThom = 2;
+jongyeytha i + x;

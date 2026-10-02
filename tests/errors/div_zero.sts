@@ -1,0 +1,5 @@
+// expect: LekKut division by zero
+bongSlanhOun "div_zero";
+akthe z: LekKut = 0;
+akthe one: LekKut = 1;
+jongyeytha one / z;

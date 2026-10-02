@@ -1,0 +1,33 @@
+bongSlanhOun "control_flow";
+akthe n: LekKut = 0;
+nvpeldae (n < 3) {
+    jongyeytha n;
+    n = n + 1;
+}
+
+somhab (akthe i: LekKut = 0; i < 6; i = i + 2) {
+    ber (i == 2) {
+        jongyeytha "two";
+    } minjengte ber (i == 4) {
+        jongyeytha "four";
+    } minjengte {
+        jongyeytha i;
+    }
+}
+
+// blocks get their own scope, shadowing is fine
+akthe x = 1;
+{
+    akthe x = 2;
+    akthe y = x + 1;
+    jongyeytha y;
+}
+jongyeytha x;
+
+// short circuit: the right side never runs
+rupamun boom() -> Boolean {
+    jongyeytha "boom";
+    morvenh ok;
+}
+jongyeytha ort ng boom();
+jongyeytha ok reu boom();

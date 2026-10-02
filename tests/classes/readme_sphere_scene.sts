@@ -1,0 +1,48 @@
+bongSlanhOun "readme_sphere_scene";
+// the README's Sphere + Scene
+sampoan Vec3 { akthe x: LekThom; akthe y: LekThom; akthe z: LekThom; }
+
+tnak Sphere {
+    akthe center: Vec3;
+    akthe radius: LekThom;
+
+    rupamun init(center: Vec3, radius: LekThom) {
+        nis.center = center;
+        nis.radius = radius;
+    }
+
+    rupamun grow(by: LekThom) {
+        radius = radius + by;
+    }
+}
+
+tnak Scene {
+    akthe objects: [Sphere];
+
+    rupamun init(objects: [Sphere]) {
+        nis.objects = objects;
+    }
+
+    rupamun total_radius() -> LekThom {
+        akthe sum = 0;
+        somhab (akthe i: LekKut = 0; i < objects.len(); i = i + 1) {
+            sum = sum + objects[i].radius;
+        }
+        morvenh sum;
+    }
+}
+
+akthe s = Sphere(Vec3(0, 0, -1), 0.5);
+jongyeytha s;
+jongyeytha s.center;
+jongyeytha s.radius;
+s.grow(1);
+jongyeytha s.radius;
+s.center.y = 3;
+jongyeytha s.center;
+
+akthe scene = Scene([s, Sphere(Vec3(0, -100.5, -1), 100)]);
+jongyeytha scene.objects.len();
+jongyeytha scene.total_radius();
+scene.objects.push(Sphere(Vec3(1, 1, 1), 1));
+jongyeytha scene.total_radius();

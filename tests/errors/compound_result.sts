@@ -1,0 +1,6 @@
+// expect: '+=' has to give back a V, but this gives a LekThom
+bongSlanhOun "compound_result";
+sampoan V { akthe x: LekThom; }
+rupamun +(a: V, b: V) -> LekThom { morvenh a.x + b.x; }
+akthe v = V(1);
+v += V(2);

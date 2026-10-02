@@ -1,0 +1,18 @@
+bongSlanhOun "math";
+yok math;
+
+jongyeytha PI;
+jongyeytha TAU == 2 * PI;
+jongyeytha SQRT2 * SQRT1_2;
+jongyeytha rad2deg(PI);
+jongyeytha deg2rad(180) == PI;
+jongyeytha sqrt(16);
+jongyeytha abs(-3.5);
+jongyeytha floor(-1.5);
+jongyeytha ceil(1.2);
+jongyeytha min(3, -2);
+jongyeytha max(3, -2);
+jongyeytha pow(2, 10);
+jongyeytha cos(0);
+jongyeytha clamp(1.7, 0, 1);
+jongyeytha INFINITY > 1000000;

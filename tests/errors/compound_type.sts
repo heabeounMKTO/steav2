@@ -1,0 +1,5 @@
+// expect: no operator '+' for LekKut and LekThom
+bongSlanhOun "compound_type";
+akthe n: LekKut = 1;
+akthe x = 0.5;
+n += x;

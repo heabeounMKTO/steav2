@@ -1,0 +1,37 @@
+bongSlanhOun "functions";
+rupamun fib(n: LekKut) -> LekKut {
+    ber (n < 2) morvenh n;
+    morvenh fib(n - 1) + fib(n - 2);
+}
+jongyeytha fib(20);
+
+// functions see globals, even ones declared after them
+rupamun bump() {
+    counter = counter + 1;
+}
+akthe counter: LekKut = 0;
+bump();
+bump();
+jongyeytha counter;
+
+// calling a function declared further down
+jongyeytha twice(21);
+rupamun twice(x: LekThom) -> LekThom {
+    morvenh x * 2;
+}
+
+// no -> means OrtMean, printing it prints sone
+rupamun nothing() {}
+jongyeytha nothing();
+
+rupamun sign(x: LekThom) -> LekKut {
+    ber (x < 0) {
+        morvenh -1;
+    } minjengte ber (x > 0) {
+        morvenh 1;
+    } minjengte {
+        morvenh 0;
+    }
+}
+jongyeytha sign(-3);
+jongyeytha sign(0);

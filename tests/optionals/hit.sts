@@ -1,0 +1,74 @@
+bongSlanhOun "hit";
+sampoan Vec3 { akthe x: LekThom; akthe y: LekThom; akthe z: LekThom; }
+sampoan HitRecord {
+    akthe p: Vec3;
+    akthe t: LekThom;
+}
+
+rupamun hit(t: LekThom, tMin: LekThom, tMax: LekThom) -> HitRecord? {
+    ber (t < tMin reu t > tMax) {
+        morvenh sone;
+    }
+    morvenh HitRecord(Vec3(0, 0, t), t);
+}
+
+// the README's pattern, narrowed inside the ber
+akthe hitResult = hit(2, 0.001, 10);
+ber (hitResult != sone) {
+    jongyeytha hitResult.t;
+    jongyeytha hitResult.p;
+    jongyeytha hitResult;
+}
+
+akthe miss = hit(20, 0.001, 10);
+jongyeytha miss;
+jongyeytha miss == sone;
+ber (miss == sone) {
+    jongyeytha "missed";
+} minjengte {
+    jongyeytha miss.t;
+}
+
+// T -> T? on assignment, and writing through a narrowed optional
+akthe h: HitRecord? = sone;
+jongyeytha h;
+h = HitRecord(Vec3(1, 2, 3), 4);
+ber (h != sone) {
+    h.t = 5;
+    jongyeytha h;
+}
+
+// one slot optionals
+akthe name: Ahsor? = sone;
+jongyeytha name != sone;
+name = "steav";
+ber (name != sone) {
+    jongyeytha name + "2";
+}
+
+// optional sampoans in arrays and tnak fields
+akthe hits: [HitRecord?] = [hit(1, 0, 10), hit(50, 0, 10)];
+jongyeytha hits;
+tnak Cache {
+    akthe last: HitRecord?;
+}
+akthe c = Cache();
+jongyeytha c.last == sone;
+c.last = hit(3, 0, 10);
+akthe last = c.last;
+ber (last != sone) {
+    jongyeytha last.t;
+}
+
+// narrowing in a function, locals this time
+rupamun t_or_zero(r: HitRecord?) -> LekThom {
+    ber (r == sone) {
+        morvenh 0;
+    }
+    ber (r != sone) {
+        morvenh r.t;
+    }
+    morvenh -1;
+}
+jongyeytha t_or_zero(hit(7, 0, 10));
+jongyeytha t_or_zero(sone);

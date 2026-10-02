@@ -1,0 +1,4 @@
+// expect: expected 2 arguments but got 1
+bongSlanhOun "arity";
+rupamun add(a: LekThom, b: LekThom) -> LekThom { morvenh a + b; }
+add(1);

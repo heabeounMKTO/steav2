@@ -1,0 +1,34 @@
+bongSlanhOun "operators";
+sampoan V {
+    akthe x: LekThom;
+    akthe y: LekThom;
+
+    rupamun scaled(s: LekThom) -> V {
+        morvenh nis * s;
+    }
+    rupamun doubled() -> V {
+        // bare method call on nis
+        morvenh scaled(2);
+    }
+}
+
+rupamun +(a: V, b: V) -> V { morvenh V(a.x + b.x, a.y + b.y); }
+rupamun -(a: V, b: V) -> V { morvenh V(a.x - b.x, a.y - b.y); }
+rupamun -(a: V) -> V { morvenh V(-a.x, -a.y); }
+rupamun *(a: V, s: LekThom) -> V { morvenh V(a.x * s, a.y * s); }
+rupamun *(s: LekThom, a: V) -> V { morvenh V(s * a.x, s * a.y); }
+rupamun ==(a: V, b: V) -> Boolean { morvenh a.x == b.x ng a.y == b.y; }
+rupamun <(a: V, b: V) -> Boolean { morvenh a.x < b.x; }
+
+akthe a = V(1, 2);
+akthe b = V(3, 5);
+jongyeytha a + b;
+jongyeytha b - a;
+jongyeytha -a;
+jongyeytha a * 3;
+jongyeytha 3 * a;
+jongyeytha a == V(1, 2);
+jongyeytha a == b;
+jongyeytha a < b;
+jongyeytha a.doubled();
+jongyeytha -(a + b) * 2;

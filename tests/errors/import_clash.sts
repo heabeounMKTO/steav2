@@ -1,0 +1,4 @@
+// expect: clashes with a name declared here
+bongSlanhOun "import_clash";
+yok math;
+rupamun sqrt(x: LekThom) -> LekThom { morvenh x; }

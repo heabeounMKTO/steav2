@@ -1,0 +1,96 @@
+bongSlanhOun "sphere";
+// a tiny ray tracer: tnak scene, sampoan rays, HitRecord? + narrowing,
+// keo's vector API. shades by the normal and prints ascii.
+yok vector;
+yok math;
+
+sampoan Ray {
+    akthe origin: Vec3;
+    akthe dir: Vec3;
+
+    rupamun at(t: LekThom) -> Vec3 {
+        morvenh origin + dir * t;
+    }
+}
+
+sampoan HitRecord {
+    akthe p: Vec3;
+    akthe normal: Vec3;
+    akthe t: LekThom;
+}
+
+tnak Sphere {
+    akthe center: Vec3;
+    akthe radius: LekThom;
+
+    rupamun init(center: Vec3, radius: LekThom) {
+        nis.center = center;
+        nis.radius = radius;
+    }
+
+    rupamun hit(r: Ray, t_min: LekThom, t_max: LekThom) -> HitRecord? {
+        akthe oc = r.origin - center;
+        akthe a = r.dir.length_sq();
+        akthe half_b = dot(oc, r.dir);
+        akthe c = oc.length_sq() - radius * radius;
+        akthe disc = half_b * half_b - a * c;
+        ber (disc < 0) morvenh sone;
+        akthe root = (-half_b - sqrt(disc)) / a;
+        ber (root < t_min reu root > t_max) {
+            root = (-half_b + sqrt(disc)) / a;
+            ber (root < t_min reu root > t_max) morvenh sone;
+        }
+        akthe p = r.at(root);
+        morvenh HitRecord(p, (p - center) / radius, root);
+    }
+}
+
+tnak Scene {
+    akthe objects: [Sphere];
+
+    rupamun init(objects: [Sphere]) {
+        nis.objects = objects;
+    }
+
+    rupamun hit(r: Ray, t_min: LekThom, t_max: LekThom) -> HitRecord? {
+        akthe closest: HitRecord? = sone;
+        akthe best = t_max;
+        somhab (akthe i: LekKut = 0; i < objects.len(); i = i + 1) {
+            akthe h = objects[i].hit(r, t_min, best);
+            ber (h != sone) {
+                best = h.t;
+                closest = h;
+            }
+        }
+        morvenh closest;
+    }
+}
+
+akthe scene = Scene([
+    Sphere(Vec3(0, 0, -1), 0.5),
+    Sphere(Vec3(0, -100.5, -1), 100)
+]);
+
+akthe shades = [" ", ".", ":", "-", "=", "+", "*", "#", "%", "@"];
+akthe width: LekKut = 48;
+akthe height: LekKut = 20;
+akthe camera = zero();
+
+somhab (akthe j: LekKut = 0; j < height; j = j + 1) {
+    akthe line = "";
+    somhab (akthe i: LekKut = 0; i < width; i = i + 1) {
+        akthe u = (LekThom(i) + 0.5) / LekThom(width) * 4 - 2;
+        akthe v = 1 - (LekThom(j) + 0.5) / LekThom(height) * 2;
+        akthe r = Ray(camera, Vec3(u, v, -1));
+        akthe hitResult = scene.hit(r, 0.001, INFINITY);
+        ber (hitResult != sone) {
+            // light from up and to the left
+            akthe light = Vec3(-1, 1, 1).normalized();
+            akthe lit = max(dot(hitResult.normal, light), 0);
+            line = line + shades[LekKut(lit * 9)];
+        } minjengte {
+            line = line + " ";
+        }
+    }
+    jongyeytha line;
+}

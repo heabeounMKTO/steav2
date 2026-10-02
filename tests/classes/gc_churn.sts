@@ -1,0 +1,28 @@
+bongSlanhOun "gc_churn";
+// lots of garbage, only the last list survives
+tnak Node {
+    akthe value: LekKut;
+    akthe next: Node?;
+    rupamun init(value: LekKut, next: Node?) {
+        nis.value = value;
+        nis.next = next;
+    }
+}
+
+akthe keep: Node? = sone;
+somhab (akthe round: LekKut = 0; round < 200; round = round + 1) {
+    akthe list: Node? = sone;
+    somhab (akthe i: LekKut = 0; i < 100; i = i + 1) {
+        list = Node(i, list);
+    }
+    akthe s = "round " + "garbage";
+    keep = list;
+}
+
+akthe sum: LekKut = 0;
+akthe cur = keep;
+nvpeldae (cur != sone) {
+    sum = sum + cur.value;
+    cur = cur.next;
+}
+jongyeytha sum;

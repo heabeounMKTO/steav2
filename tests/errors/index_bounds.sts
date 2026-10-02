@@ -1,0 +1,4 @@
+// expect: index 3 is out of bounds
+bongSlanhOun "index_bounds";
+akthe xs = [1, 2, 3];
+jongyeytha xs[3];

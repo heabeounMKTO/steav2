@@ -1,0 +1,4 @@
+// expect: only optionals (T?) can be compared against sone
+bongSlanhOun "sone_non_optional";
+akthe x = 1;
+jongyeytha x == sone;

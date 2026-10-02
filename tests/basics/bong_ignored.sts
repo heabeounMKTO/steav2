@@ -1,0 +1,8 @@
+bongSlanhOun "sous'dey";
+// the value is never evaluated, not even type checked
+bongSlanhOun undefined_name + 1;
+jongyeytha 1;
+{
+    bongSlanhOun "again";
+    jongyeytha 2;
+}

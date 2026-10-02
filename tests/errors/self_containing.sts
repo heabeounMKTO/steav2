@@ -1,0 +1,3 @@
+// expect: contains itself
+bongSlanhOun "self_containing";
+sampoan Node { akthe next: Node?; }

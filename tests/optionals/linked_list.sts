@@ -1,0 +1,21 @@
+bongSlanhOun "linked_list";
+// nvpeldae narrows too, and assigning ends the narrowing
+tnak Node {
+    akthe value: LekKut;
+    akthe next: Node?;
+    rupamun init(value: LekKut, next: Node?) {
+        nis.value = value;
+        nis.next = next;
+    }
+}
+
+akthe list: Node? = sone;
+somhab (akthe i: LekKut = 1; i <= 4; i = i + 1) {
+    list = Node(i, list);
+}
+
+akthe cur = list;
+nvpeldae (cur != sone) {
+    jongyeytha cur.value;
+    cur = cur.next;
+}

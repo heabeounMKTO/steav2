@@ -1,0 +1,5 @@
+// expect: can reach the end without a morvenh
+bongSlanhOun "missing_return";
+rupamun f(x: LekThom) -> LekThom {
+    ber (x > 0) morvenh x;
+}

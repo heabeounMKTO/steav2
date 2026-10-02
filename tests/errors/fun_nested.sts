@@ -1,0 +1,5 @@
+// expect: can only be declared at the top level
+bongSlanhOun "fun_nested";
+rupamun outer() {
+    rupamun inner() {}
+}

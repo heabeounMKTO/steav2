@@ -1,0 +1,8 @@
+bongSlanhOun "casts";
+akthe i: LekKut = 3;
+akthe x = LekThom(i) / 2;
+jongyeytha x;
+jongyeytha LekKut(2.9);
+jongyeytha LekKut(-2.9);
+jongyeytha LekThomKlang(i) * 1000000000;
+jongyeytha Lek(i);

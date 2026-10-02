@@ -1,0 +1,4 @@
+bongSlanhOun "file_import_alias";
+yok "lib/helper.sts" jea h;
+
+jongyeytha h.helper_value();

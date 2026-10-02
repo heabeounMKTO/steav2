@@ -1,0 +1,3 @@
+// expect: expected ';' after the value
+bongSlanhOun "parse_error";
+jongyeytha 1

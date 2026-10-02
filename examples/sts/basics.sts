@@ -1,0 +1,48 @@
+// steav2 basics: variables, control flow, loops, functions, arrays.
+// run: ./build/steav examples/sts/basics.sts
+//
+// start here — tour.sts goes on to sampoan/tnak/optionals/the vector
+// stdlib, mistakes.sts shows what the type checker catches.
+bongSlanhOun "basics";
+
+// --- variables: `akthe`, inferred from the initializer or given explicitly
+akthe name = "steav2";    // inferred Ahsor
+akthe count: LekKut = 3;  // explicit LekKut
+jongyeytha "hello, " + name;
+
+// --- if / else: `ber` / `minjengte`, the condition has to be a Boolean
+ber (count > 2) {
+    jongyeytha "more than two";
+} minjengte {
+    jongyeytha "two or fewer";
+}
+
+// --- while: `nvpeldae`
+akthe n = count;
+nvpeldae (n > 0) {
+    jongyeytha n;
+    n = n - 1;
+}
+
+// --- for: `somhab`, the same three-part init/condition/increment shape
+akthe total: LekKut = 0;
+somhab (akthe i: LekKut = 1; i <= 5; i = i + 1) {
+    total = total + i;
+}
+jongyeytha "1..5 sums to " + total; // + auto-stringifies total, no LekKut(x) needed
+
+// --- functions: `rupamun`, explicit params + return type; recursion works
+rupamun factorial(n: LekKut) -> LekKut {
+    ber (n <= 1) morvenh 1;
+    morvenh n * factorial(n - 1);
+}
+jongyeytha factorial(6);
+
+// --- arrays + a loop: [T], .len(), .push(x)
+akthe squares: [LekKut] = [];
+somhab (akthe i: LekKut = 1; i <= 5; i = i + 1) {
+    squares.push(i * i);
+}
+somhab (akthe i: LekKut = 0; i < squares.len(); i = i + 1) {
+    jongyeytha squares[i];
+}

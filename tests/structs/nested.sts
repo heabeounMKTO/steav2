@@ -1,0 +1,32 @@
+bongSlanhOun "nested";
+sampoan V { akthe x: LekThom; akthe y: LekThom; }
+sampoan Ray {
+    akthe origin: V;
+    akthe dir: V;
+
+    rupamun at(t: LekThom) -> V {
+        morvenh V(origin.x + dir.x * t, origin.y + dir.y * t);
+    }
+}
+
+akthe r = Ray(V(0, 0), V(1, 2));
+jongyeytha r;
+jongyeytha r.at(3);
+r.dir.y = 10;
+jongyeytha r.dir;
+jongyeytha r.at(1).y;
+// a field of a temporary
+jongyeytha Ray(V(5, 6), V(0, 0)).origin.y;
+
+rupamun make() -> Ray {
+    morvenh Ray(V(1, 1), V(2, 2));
+}
+jongyeytha make().dir.x;
+
+// nested field writes on a local inside a function
+rupamun bend() -> Ray {
+    akthe q = make();
+    q.origin.x = -1;
+    morvenh q;
+}
+jongyeytha bend();

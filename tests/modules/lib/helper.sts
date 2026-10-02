@@ -1,0 +1,9 @@
+// expect: na `bongSlanhOun`?!!! the file must start with `bongSlanhOun "...";`
+// yok "deep.sts" here is relative to THIS file's own dir (tests/modules/lib/),
+// not the importing script's — proves file imports resolve per-importer, not
+// against the main script's directory.
+yok "deep.sts";
+
+rupamun helper_value() -> LekKut {
+  morvenh deep_value() + 1;
+}

@@ -1,0 +1,3 @@
+// expect: needs a body, only stdlib modules can declare
+bongSlanhOun "native_outside_stdlib";
+rupamun f(x: LekThom) -> LekThom;

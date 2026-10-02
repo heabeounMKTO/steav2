@@ -1,0 +1,5 @@
+// expect: it might be sone
+bongSlanhOun "unwrapped_optional";
+sampoan Hit { akthe t: LekThom; }
+akthe h: Hit? = Hit(1);
+jongyeytha h.t;

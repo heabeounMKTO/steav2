@@ -1,0 +1,4 @@
+// expect: 'Thing' is already declared
+bongSlanhOun "redeclared";
+sampoan Thing { akthe x: LekThom; }
+rupamun Thing() {}

@@ -1,0 +1,13 @@
+bongSlanhOun "vector_alias";
+yok vector jea vec;
+
+akthe a: vec.Vec3 = vec.Vec3(1, 2, 3);
+jongyeytha vec.dot(a, a);
+// operators are always in scope
+jongyeytha a + a;
+akthe up = vec.Vec3(0, 1, 0);
+jongyeytha vec.cross(up, vec.Vec3(1, 0, 0));
+
+// the alias doesn't leak bare names, so these are free to use
+rupamun dot(x: LekThom) -> LekThom { morvenh x; }
+jongyeytha dot(7);

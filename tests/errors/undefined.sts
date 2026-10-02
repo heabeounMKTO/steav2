@@ -1,0 +1,3 @@
+// expect: undefined name 'nope'
+bongSlanhOun "undefined";
+jongyeytha nope;

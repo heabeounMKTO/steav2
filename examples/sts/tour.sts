@@ -1,0 +1,91 @@
+// a tour of steav2 v1, top to bottom. run: ./build/steav examples/sts/tour.sts
+bongSlanhOun "kdet thom!?";
+yok vector;
+yok math jea m;
+
+// --- numbers: literals take the type the context wants, default Lek (= LekThom)
+akthe half = 1 / 2;           // LekThom, 0.5
+akthe count: LekKut = 7;      // LekKut
+jongyeytha half;
+jongyeytha count / 2;         // integer division, 3
+jongyeytha LekThom(count) / 2; // convert explicitly, 3.5
+
+// --- sampoan: value types, copied on assignment, never on the heap
+sampoan Particle {
+    akthe pos: Vec3;
+    akthe vel: Vec3;
+
+    rupamun step(dt: LekThom) -> Particle {
+        morvenh Particle(pos + vel * dt, vel);
+    }
+}
+
+akthe p = Particle(zero(), Vec3(1, 2, 0));
+akthe q = p;
+q.pos.x = 100;            // q is a copy, p is untouched
+jongyeytha p;
+jongyeytha q;
+jongyeytha p.step(0.5).step(0.5);
+
+// --- operator overloading, exact match only
+sampoan Money { akthe cents: LekKut; }
+rupamun +(a: Money, b: Money) -> Money { morvenh Money(a.cents + b.cents); }
+rupamun *(a: Money, n: LekKut) -> Money { morvenh Money(a.cents * n); }
+rupamun <(a: Money, b: Money) -> Boolean { morvenh a.cents < b.cents; }
+akthe coffee = Money(350);
+jongyeytha coffee * 3 + Money(25);
+jongyeytha coffee < Money(400);
+
+// --- tnak: reference types, shared, garbage collected
+tnak Inventory {
+    akthe items: [Ahsor];
+    akthe total: Money;
+
+    rupamun init() {
+        items = [];
+        total = Money(0);
+    }
+
+    rupamun add(name: Ahsor, price: Money) {
+        items.push(name);
+        total = total + price;
+    }
+}
+
+akthe inv = Inventory();
+akthe same = inv;          // same object
+same.add("coffee", coffee);
+same.add("bagel", Money(275));
+jongyeytha inv.items;
+jongyeytha inv.total;
+
+// --- arrays: [T], elements stored inline
+akthe path: [Vec2] = [];
+somhab (akthe i: LekKut = 0; i < 4; i = i + 1) {
+    akthe t = LekThom(i) * m.PI_2;
+    path.push(Vec2(m.cos(t), m.sin(t)));
+}
+path[0].y = 42;
+jongyeytha path.len();
+jongyeytha path[0];
+
+// --- optionals: T?, checked against sone, narrowed inside the check
+rupamun find(items: [Ahsor], name: Ahsor) -> LekKut? {
+    somhab (akthe i: LekKut = 0; i < items.len(); i = i + 1) {
+        ber (items[i] == name) morvenh i;
+    }
+    morvenh sone;
+}
+
+akthe where = find(inv.items, "bagel");
+ber (where != sone) {
+    jongyeytha where + 1;      // where is a LekKut in here, prints 2
+}
+jongyeytha find(inv.items, "tea");
+
+// --- vector, ported from keo's vec.h
+akthe n = up();
+akthe incoming = Vec3(1, -1, 0).normalized();
+jongyeytha reflect(incoming, n);
+jongyeytha rotate(right(), up(), m.PI_2).near_zero();
+jongyeytha dot(cross(right(), up()), forward());

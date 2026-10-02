@@ -1,0 +1,30 @@
+bongSlanhOun "value_semantics";
+sampoan P {
+    akthe x: LekThom;
+    akthe y: LekThom;
+}
+
+// akthe b = a; b.x = 5; never affects a
+akthe a = P(1, 2);
+akthe b = a;
+b.x = 5;
+jongyeytha a;
+jongyeytha b;
+
+// passing copies too
+rupamun zap(p: P) -> P {
+    p.x = 100;
+    morvenh p;
+}
+jongyeytha zap(a);
+jongyeytha a;
+
+// and so does reading it into a local inside a function
+rupamun local_copy() {
+    akthe c = P(7, 8);
+    akthe d = c;
+    d.y = 0;
+    jongyeytha c;
+    jongyeytha d;
+}
+local_copy();

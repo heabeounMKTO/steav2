@@ -1,0 +1,24 @@
+bongSlanhOun "readme_vec3";
+// straight from the README
+yok math;
+
+sampoan Vec3 {
+    akthe x: LekThom;
+    akthe y: LekThom;
+    akthe z: LekThom;
+
+    rupamun length() -> LekThom {
+        morvenh sqrt(x * x + y * y + z * z);
+    }
+}
+
+rupamun +(a: Vec3, b: Vec3) -> Vec3 {
+    morvenh Vec3(a.x + b.x, a.y + b.y, a.z + b.z);
+}
+
+akthe a = Vec3(1, 2, 2);
+jongyeytha a;
+jongyeytha a.length();
+jongyeytha a + Vec3(1, 1, 1);
+jongyeytha (a + a).x;
+jongyeytha Vec3(0, 3, 4).length();

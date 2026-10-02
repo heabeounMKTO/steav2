@@ -1,0 +1,4 @@
+// expect: na `bongSlanhOun`?!!! the file must start with `bongSlanhOun "...";`
+rupamun deep_value() -> LekKut {
+  morvenh 42;
+}

@@ -1,0 +1,7 @@
+// expect: a sampoan method gets a copy of nis, it can't be changed
+bongSlanhOun "index_struct_method";
+sampoan V {
+    akthe x: LekThom;
+    akthe y: LekThom;
+    rupamun zap() { nis[0] = 1; }
+}

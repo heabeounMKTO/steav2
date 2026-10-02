@@ -1,0 +1,4 @@
+// expect: 'reflect' from this module clashes with a name declared here
+bongSlanhOun "import_shadow";
+yok vector;
+rupamun reflect(v: Vec3, n: Vec3) -> Vec3 { morvenh v; }

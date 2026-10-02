@@ -1,0 +1,5 @@
+// expect: can only index a sampoan whose fields all have the same
+bongSlanhOun "index_mixed_struct";
+sampoan Hit { akthe t: LekThom; akthe hit: Boolean; }
+akthe h = Hit(1, ok);
+jongyeytha h[0];
