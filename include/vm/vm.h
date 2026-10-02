@@ -33,6 +33,8 @@ struct VM {
 
   // source -> tokens -> ast -> type check -> bytecode -> run
   SteavStatus interpret(const char *source, const char *path = nullptr);
+  // same pipeline up to bytecode, then prints every chunk instead of running
+  SteavStatus disassemble(const char *source, const char *path = nullptr);
 
   inline void push(const Value &value) { *stack_top++ = value; }
   inline Value pop() { return *--stack_top; }

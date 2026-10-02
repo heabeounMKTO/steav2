@@ -512,6 +512,7 @@ Linux, Windows/MSVC, Windows/MinGW, WASM via Emscripten). Quick start:
 cmake -S . -B build
 cmake --build build
 ./build/steav path/to/script.sts
+./build/steav --dump path/to/script.sts   # print the bytecode, don't run it
 ./build/steav --version
 ```
 

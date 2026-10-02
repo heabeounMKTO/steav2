@@ -10,9 +10,7 @@
 #include <fstream>
 #include <sstream>
 
-#ifdef STEAV_DEBUG_TRACE
 #include "debug/disassembler.h"
-#endif
 
 namespace steav_vm {
 
@@ -171,6 +169,22 @@ SteavStatus VM::interpret(const char *source, const char *path) {
   SteavStatus status = _run();
   heap.vm = nullptr;
   return status;
+}
+
+SteavStatus VM::disassemble(const char *source, const char *path) {
+  steav_ast::Ast ast;
+  steav_typecheck::TypeInfo info;
+  if (frontend(source, path, ast, info) != STEAV_LOGGING_OK)
+    return STEAV_LOGGING_COMPILE_ERROR;
+
+  ObjFunction *script = nullptr;
+  steav_compiler::Compiler compiler(ast, info, heap);
+  if (compiler.compile(script, roots) != STEAV_LOGGING_OK)
+    return STEAV_LOGGING_COMPILE_ERROR;
+
+  for (ObjFunction *fn : roots)
+    steav_debug::disassemble_chunk(fn->chunk, fn->name.c_str());
+  return STEAV_LOGGING_OK;
 }
 
 /* --------------------------------------------------------------------- run */

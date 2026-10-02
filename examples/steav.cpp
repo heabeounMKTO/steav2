@@ -33,16 +33,19 @@ int main(int argc, char **argv) {
     print_version();
     return 0;
   }
-  if (argc != 2) {
-    fprintf(stderr, "usage: steav <path.sts>\n       steav --version\n");
+  bool dump = argc == 3 && strcmp(argv[1], "--dump") == 0;
+  if (argc != 2 && !dump) {
+    fprintf(stderr, "usage: steav <path.sts>\n       steav --dump <path.sts>\n"
+                    "       steav --version\n");
     return 64;
   }
+  const char *path = argv[argc - 1];
 
-  std::ifstream file(argv[1]);
+  std::ifstream file(path);
   if (!file) {
     char open_err_str[512];
     snprintf(open_err_str, sizeof(open_err_str), "could not open \"%s\"",
-             argv[1]);
+             path);
     STEAV_LOGGING_LOG(open_err_str, STEAV_LOGGING_FILE_NOT_FOUND);
     return 74;
   }
@@ -51,7 +54,8 @@ int main(int argc, char **argv) {
   std::string source = buf.str();
 
   steav_vm::VM vm;
-  SteavStatus status = vm.interpret(source.c_str(), argv[1]);
+  SteavStatus status = dump ? vm.disassemble(source.c_str(), path)
+                            : vm.interpret(source.c_str(), path);
   if (status == STEAV_LOGGING_COMPILE_ERROR)
     return 65;
   if (status == STEAV_LOGGING_RUNTIME_ERROR)
